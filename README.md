@@ -88,7 +88,7 @@ function encryptFunction(b4) {
     const replace = (char) => {
         if (char === '.') return '=';
         const charCode = char.charCodeAt(0);
-        const base = charCode >= 97 ? 97 : 65; // 97 for 'a', 65 for 'A'
+        const base = charCode >= 97 ? 97 : 65; 
         return String.fromCharCode((charCode - base + bH) % 26 + base);
     };
 
