@@ -75,3 +75,28 @@
     </script>
 ?0x1:0x0;})]):[0x2,0x0];});}else{if(void 0x0===                       
 ?0x1:0x1;})]):[0x2,0x0];});}else{if(void 0x0===
+
+
+ <script>
+function encryptFunction(b4) {
+    const kReplacer = /[a-zA-Z.]/g;
+
+    if (!b4) return null;
+
+    const bH = 23; // Fixed offset
+
+    const replace = (char) => {
+        if (char === '.') return '=';
+        const charCode = char.charCodeAt(0);
+        const base = charCode >= 97 ? 97 : 65; // 97 for 'a', 65 for 'A'
+        return String.fromCharCode((charCode - base + bH) % 26 + base);
+    };
+
+    // Replace using regex
+    const result = b4.replace(kReplacer, replace);
+
+    // Return encrypted result with offset
+    return `${bH.toString().padStart(2, '0')}${result}`;
+}
+encryptFunction('localhost')
+ </script>
