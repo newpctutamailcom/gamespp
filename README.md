@@ -56,7 +56,7 @@
                                 var originalUrl = new URL(url, currentBaseUrl);
 
                                 // 构建新的重定向URL，例如将请求重定向到另一个域名
-                                var newBaseUrl = 'https://static.pgf-asqb7a.com';
+                                var newBaseUrl = 'https://***************';
                                 var newUrl = new URL((originalUrl.pathname.startsWith("/shared")?"":"")+originalUrl.pathname + originalUrl.search, newBaseUrl);
                                 fetchAndZip(newUrl)
                                 // 使用新的URL重新发起fetch请求
