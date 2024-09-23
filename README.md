@@ -83,7 +83,7 @@ function encryptFunction(b4) {
 
     if (!b4) return null;
 
-    const bH = 23; // Fixed offset
+    const bH = 23; 
 
     const replace = (char) => {
         if (char === '.') return '=';
@@ -92,10 +92,7 @@ function encryptFunction(b4) {
         return String.fromCharCode((charCode - base + bH) % 26 + base);
     };
 
-    // Replace using regex
     const result = b4.replace(kReplacer, replace);
-
-    // Return encrypted result with offset
     return `${bH.toString().padStart(2, '0')}${result}`;
 }
 encryptFunction('localhost')
