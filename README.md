@@ -98,3 +98,10 @@ function encryptFunction(b4) {
 encryptFunction('localhost')
  </script>
 J6 ? 0x1 : 0x0
+
+
+
+?0x1:0x0;}else{
+
+
+
