@@ -135,10 +135,8 @@ J6 ? 0x1 : 0x0
 
 
 async function createHMACSignature(data, keyString, hashAlgorithm) {
-    // 将密钥字符串转换为字节数组
     const keyBuffer = new TextEncoder().encode(keyString);
 
-    // 导入密钥
     const importedKey = await window.crypto.subtle.importKey(
         'raw',
         keyBuffer,
@@ -147,22 +145,19 @@ async function createHMACSignature(data, keyString, hashAlgorithm) {
         ['sign']
     );
 
-    // 生成 HMAC 签名
     const signature = await window.crypto.subtle.sign(
         'HMAC',
         importedKey,
         new TextEncoder().encode(data)
     );
 
-    // 将签名转换为十六进制字符串
     const signatureArray = new Uint8Array(signature);
     const hexSignature = Array.from(signatureArray).map(b => ('00' + b.toString(16)).slice(-2)).join('');
 
     return hexSignature;
 }
 
-// 使用示例
-const keyString = 'my_secret_key'; // 示例密钥字符串
+const keyString = 'my_secret_key'; 
 const data = 'Hello, world!';
 const hashAlgorithm = 'SHA-256';
 
