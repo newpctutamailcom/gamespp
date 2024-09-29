@@ -196,3 +196,12 @@ createHMACSignature(data, keyString, hashAlgorithm).then(hexSignature => {
                 return encoded; // 返回编码结果
             }
         }
+
+
+
+
+
+
+
+
+        
