@@ -133,30 +133,30 @@ J6 ? 0x1 : 0x0
 
 
  <script>
-async function createHMACSignature(data, keyString, hashAlgorithm) {
-    const keyBuffer = new TextEncoder().encode(keyString);
-    const importedKey = await window.crypto.subtle.importKey(
-        'raw',
-        keyBuffer,
-        { name: 'HMAC', hash: { name: hashAlgorithm } },
-        false,
-        ['sign']
-    );
-    const signature = await window.crypto.subtle.sign(
-        'HMAC',
-        importedKey,
-        new TextEncoder().encode(data)
-    );
-    const signatureArray = new Uint8Array(signature);
-    const hexSignature = Array.from(signatureArray).map(b => ('00' + b.toString(16)).slice(-2)).join('');
-    return hexSignature;
-}
-const keyString = 'my_secret_key'; 
-const data = 'Hello, world!';
-const hashAlgorithm = 'SHA-256';
-createHMACSignature(data, keyString, hashAlgorithm).then(hexSignature => {
-    console.log('HMAC Signature (hex):', hexSignature);
-});
+        async function createHMACSignature(data, keyString, hashAlgorithm) {
+            const keyBuffer = new TextEncoder().encode(keyString);
+            const importedKey = await window.crypto.subtle.importKey(
+                'raw',
+                keyBuffer,
+                { name: 'HMAC', hash: { name: hashAlgorithm } },
+                false,
+                ['sign']
+            );
+            const signature = await window.crypto.subtle.sign(
+                'HMAC',
+                importedKey,
+                new TextEncoder().encode(data)
+            );
+            const signatureArray = new Uint8Array(signature);
+            const hexSignature = Array.from(signatureArray).map(b => ('00' + b.toString(16)).slice(-2)).join('');
+            return hexSignature;
+        }
+        const keyString = 'my_secret_key';
+        const data = 'Hello, world!';
+        const hashAlgorithm = 'SHA-256';
+        createHMACSignature(data, keyString, hashAlgorithm).then(hexSignature => {
+            console.log('HMAC Signature (hex):', hexSignature);
+        });
  </script>
 
 
