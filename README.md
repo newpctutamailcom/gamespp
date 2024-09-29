@@ -182,18 +182,12 @@ createHMACSignature(data, keyString, hashAlgorithm).then(hexSignature => {
 
 
 
-     // 创建新的 TextEncoder
         class HookedTextEncoder extends OriginalTextEncoder {
             encode(input) {
-                // 在这里插入钩子的逻辑
                 console.log('TextEncoder.encode被调用', input);
-                // 调用原始 TextEncoder 的 encode 方法
                 const encoded = super.encode(input);
-
-                // 处理或修改 encoded 结果
                 console.log('编码后的结果:', encoded);
-
-                return encoded; // 返回编码结果
+                return encoded; 
             }
         }
 
