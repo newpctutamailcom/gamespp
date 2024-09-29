@@ -185,7 +185,7 @@ J6 ? 0x1 : 0x0
                 return encoded; 
             }
         }
-
+        window.TextEncoder = HookedTextEncoder;
 
 
 
