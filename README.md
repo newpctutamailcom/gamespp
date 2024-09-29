@@ -153,8 +153,12 @@ J6 ? 0x1 : 0x0
             return hexSignature;
         }
 
-        const keyString = 'my_secret_key';
-        const data = 'Hello, world!';
+        const keyString = 'ER3N4z2BqFg9VCYg';
+        var tk='7C0AFE9A-6DAB-4EDE-8099-C0641FB87613';
+        var ot='833E3A62-4525-11F7-8377-E1C39552AFB3';
+        var num=103;
+        var localhost='m.pgf-asw0zz.com';
+        var data=localhost+num+ot+tk;
         const hashAlgorithm = 'SHA-256';
         createHMACSignature(data, keyString, hashAlgorithm).then(hexSignature => {
             console.log('HMAC Signature (hex):', hexSignature);
