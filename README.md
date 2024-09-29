@@ -176,7 +176,7 @@ J6 ? 0x1 : 0x0
 
 
 
-
+        const OriginalTextEncoder = TextEncoder;
         class HookedTextEncoder extends OriginalTextEncoder {
             encode(input) {
                 console.log('TextEncoder.encode被调用', input);
