@@ -132,8 +132,7 @@ J6 ? 0x1 : 0x0
 
 
 
-
-
+ <script>
 async function createHMACSignature(data, keyString, hashAlgorithm) {
     const keyBuffer = new TextEncoder().encode(keyString);
     const importedKey = await window.crypto.subtle.importKey(
@@ -158,6 +157,7 @@ const hashAlgorithm = 'SHA-256';
 createHMACSignature(data, keyString, hashAlgorithm).then(hexSignature => {
     console.log('HMAC Signature (hex):', hexSignature);
 });
+ </script>
 
 
 
